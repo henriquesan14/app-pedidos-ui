@@ -1,0 +1,28 @@
+<app-error-msg></app-error-msg>
+<app-painel-simples titulo="Mesas" col="12" tipo="default">
+  <button class="form-group btn btn-primary" routerLink="/mesas/cadastro">Nova Mesa</button>
+  
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mesa of mesas">
+          <td>{{mesa.id}}</td>
+          <td>{{mesa.nome}}</td>
+          <td>{{mesa.descricao}}</td>
+          <td><button type="button" class="btn btn-success btn-sm" routerLink="/mesas/editar/{{mesa.id}}" ><i class="fas fa-pencil-alt"></i></button></td>
+          <td><button type="button" class="btn btn-danger btn-sm" (click)="deletaMesa(mesa.id)"  ><i class="fas fa-trash-alt"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="!existemMesas()">
+      <span class="badge badge-info">Nenhuma mesa cadastrada</span>
+    </div>
+</app-painel-simples>
+
+

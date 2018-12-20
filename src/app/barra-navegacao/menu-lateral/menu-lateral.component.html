@@ -1,0 +1,26 @@
+<div class="menu" [class.menu-open]="menuAberto">
+  <ul>
+    <li class="d-block d-sm-none"><a href="#">Sair</a></li>
+    <li ><a (click)="toggle1()"><i class="fas fa-utensils"></i><span>Produtos</span></a>
+     <ul [ngClass]="opProdutos == true ? 'show-menu' : 'hide-menu'">
+         <li><a routerLink="/produtos"><i class="fas fa-list-alt"></i>Listar</a></li>
+         <li><a routerLink="/produtos/cadastro"><i class="fas fa-plus-square"></i>Cadastrar</a></li>
+     </ul>
+    </li>
+
+    <li ><a (click)="toggle2()"><i class="fas fa-chair"></i><span>Mesas</span></a>
+      <ul [ngClass]="opMesas == true ? 'show-menu' : 'hide-menu'">
+          <li><a routerLink="/mesas"><i class="fas fa-list-alt"></i>Listar</a></li>
+          <li><a routerLink="/mesas/cadastro"><i class="fas fa-plus-square"></i>Cadastrar</a></li>
+      </ul>
+     </li>
+
+     <li ><a (click)="toggle3()"><i class="fas fa-shopping-cart"></i><span>Pedidos</span></a>
+      <ul [ngClass]="opPedidos == true ? 'show-menu' : 'hide-menu'">
+          <li><a routerLink="/pedidos"><i class="fas fa-list-alt"></i>Listar</a></li>
+          <li><a routerLink="/pedidos/cadastro"><i class="fas fa-plus-square"></i>Novo</a></li>
+      </ul>
+     </li>
+    
+  </ul>
+</div>

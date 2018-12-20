@@ -1,0 +1,26 @@
+<app-error-msg></app-error-msg>
+<app-painel-simples titulo="Produtos" col="12" tipo="default" >
+  <button class="form-group btn btn-primary" routerLink="/produtos/cadastro">Novo Produto</button>
+  
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nome</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produto of produtos">
+          <td>{{produto.id}}</td>
+          <td>{{produto.nome}}</td>
+          <td>{{produto.valorUnitario | currency:'BRL':true:'1.2-2'}}</td>
+          <td><button type="button" class="btn btn-success btn-sm" routerLink="/produtos/editar/{{produto.id}}" ><i class="fas fa-pencil-alt"></i></button></td>
+          <td><button type="button" class="btn btn-danger btn-sm" (click)="deletaProduto(produto.id)" ><i class="fas fa-trash-alt"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="!existemProdutos()">
+      <span class="badge badge-info">Nenhum produto cadastrado</span>
+    </div>
+</app-painel-simples>

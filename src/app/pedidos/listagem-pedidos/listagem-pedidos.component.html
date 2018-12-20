@@ -1,0 +1,26 @@
+<app-painel-simples titulo="Pedidos" col="12">
+    <button type="button" class="form-group btn btn-primary" routerLink="/pedidos/cadastro">Novo pedido</button>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Data/hora</th>
+                <th>Mesa</th>
+                <th>Valor Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pedido of pedidos">
+                <td>{{pedido.id}}</td>
+                <td>{{pedido.dataPedido}}</td>
+                <td>{{pedido.mesa.nome}}</td>
+                <td>{{pedido.valorTotal | currency: 'BRL'}}</td>
+                <td><button type="button" routerLink="/pedidos/{{pedido.id}}" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i></button></td>
+                <td><button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="!existemPedidos()">
+        <span class="badge badge-info">Nenhum pedido cadastrado</span>
+    </div>
+</app-painel-simples>
