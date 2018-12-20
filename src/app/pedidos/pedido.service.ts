@@ -43,4 +43,11 @@ export class PedidoService {
     return this.http.put<Pedido>(url, pedido);
   }
 
+  deletaPedido(id: number): Observable<Pedido> {
+    const url = `${environment.apiUrl}/pedidos/${id}`;
+    return this.http.delete<Pedido>(url);
+  }
+
+
+
 }

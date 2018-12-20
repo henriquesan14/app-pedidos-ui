@@ -26,7 +26,8 @@ export class ListagemMesasComponent implements OnInit {
 
   deletaMesa(id: number) {
       this.mesaService.deletaMesa(id)
-    .subscribe(() => {this.getListaMesas(); }, () => {this.errorMsgComponent.setError('Falha ao apagar mesa');});
+    .subscribe(() => {this.getListaMesas();
+    this.errorMsgComponent.setError('Mesa apagada'); }, () => {this.errorMsgComponent.setError('Falha ao apagar mesa');});
   }
 
 

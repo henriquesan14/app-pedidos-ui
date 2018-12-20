@@ -1,3 +1,4 @@
+<app-error-msg></app-error-msg>
 <app-painel-simples titulo="Pedidos" col="12">
     <button type="button" class="form-group btn btn-primary" routerLink="/pedidos/cadastro">Novo pedido</button>
     <table class="table table-hover">
@@ -16,7 +17,7 @@
                 <td>{{pedido.mesa.nome}}</td>
                 <td>{{pedido.valorTotal | currency: 'BRL'}}</td>
                 <td><button type="button" routerLink="/pedidos/{{pedido.id}}" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i></button></td>
-                <td><button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
+                <td><button (click)="deletaPedido(pedido.id)" type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
             </tr>
         </tbody>
     </table>

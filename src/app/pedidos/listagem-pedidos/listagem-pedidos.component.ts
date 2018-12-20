@@ -23,6 +23,12 @@ export class ListagemPedidosComponent implements OnInit {
     .subscribe((pedidos: Pedido[]) => {this.pedidos = pedidos; }, () => {this.errorMsgComponent.setError('Falha ao buscar pedidos'); });
   }
 
+  deletaPedido(id: number) {
+    this.pedidoService.deletaPedido(id)
+    .subscribe(() => {this.getListaPedidos();
+      this.errorMsgComponent.setError('Pedido apagado'); }, () => {this.errorMsgComponent.setError('Error ao deletar pedido') });
+  }
+
   existemPedidos() {
     return this.pedidos && this.pedidos.length;
   }

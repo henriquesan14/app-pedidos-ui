@@ -28,7 +28,8 @@ export class ListagemProdutosComponent implements OnInit {
 
   deletaProduto(id: number) {
     this.produtoService.deletaProduto(id)
-    .subscribe(() => {this.getListaProdutos(); }, () => {this.errorMsgComponent.setError('Falha ao apagar produto');})
+    .subscribe(() => {this.getListaProdutos();
+    this.errorMsgComponent.setError('Produto apagado'); }, () => {this.errorMsgComponent.setError('Falha ao apagar produto');})
   }
 
   existemProdutos(): boolean {
