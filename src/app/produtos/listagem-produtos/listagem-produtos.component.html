@@ -1,7 +1,9 @@
 <app-error-msg></app-error-msg>
 <app-painel-simples titulo="Produtos" col="12" tipo="default" >
-  <button class="form-group btn btn-primary" routerLink="/produtos/cadastro">Novo Produto</button>
-  
+    <div class="row form-group">
+        <button class="btn btn-primary mr-3" routerLink="/produtos/cadastro">Novo Produto</button>
+        <input placeholder="Pesquise..." class="form-control col-md-10" type="text" name="search" [(ngModel)]="filter">
+    </div>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -11,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let produto of produtos">
+        <tr *ngFor="let produto of produtos | filter: filter;">
           <td>{{produto.id}}</td>
           <td>{{produto.nome}}</td>
           <td>{{produto.valorUnitario | currency:'BRL':true:'1.2-2'}}</td>

@@ -1,6 +1,9 @@
 <app-error-msg></app-error-msg>
 <app-painel-simples titulo="Pedidos" col="12">
-    <button type="button" class="form-group btn btn-primary" routerLink="/pedidos/cadastro">Novo pedido</button>
+    <div class="row form-group">
+        <button class="btn btn-primary mr-4" routerLink="/pedidos/cadastro">Novo Pedido</button>
+        <input placeholder="Pesquise..." class="form-control col-md-10" type="text" name="search" [(ngModel)]="filter">
+    </div>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -11,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let pedido of pedidos">
+            <tr *ngFor="let pedido of pedidos | filter:filter;">
                 <td>{{pedido.id}}</td>
                 <td>{{pedido.dataPedido}}</td>
                 <td>{{pedido.mesa.nome}}</td>

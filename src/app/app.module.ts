@@ -23,7 +23,7 @@ import { ListagemPedidosComponent } from './pedidos/listagem-pedidos/listagem-pe
 import { EdicaoPedidosComponent } from './pedidos/edicao-pedidos/edicao-pedidos.component';
 import { EdicaoMesasComponent } from './mesas/edicao-mesas/edicao-mesas.component';
 import { EdicaoProdutosComponent } from './produtos/edicao-produtos/edicao-produtos.component';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -49,7 +49,8 @@ import { EdicaoProdutosComponent } from './produtos/edicao-produtos/edicao-produ
     HttpClientModule,
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    Ng2SearchPipeModule
   ],
   providers: [ProdutoService, MesaService],
   bootstrap: [AppComponent]
