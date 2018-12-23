@@ -22,7 +22,7 @@ export class ListagemProdutosComponent implements OnInit {
   getListaProdutos() {
     this.produtoService.getListaProdutos()
     // tslint:disable-next-line:max-line-length
-    .subscribe((produtos: Produto[]) => {this.produtos = produtos; }, () => { this.errorMsgComponent.setError('Falha ao buscar playlists'); });
+    .subscribe((produtos: Produto[]) => {this.produtos = produtos; }, () => { this.errorMsgComponent.setError('Falha ao buscar produtos'); });
 
   }
 

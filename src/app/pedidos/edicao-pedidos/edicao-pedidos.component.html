@@ -64,12 +64,15 @@
           <td><button (click)="excluirItem(item.index)" type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
         </tr>
       </tbody>
+      <div *ngIf="pedido.itensPedidos.length === 0">
+        <span class="badge badge-info">Nenhum item adicionado</span>
+      </div>
     </table>
     <div>
     <h5>Total do pedido: {{pedido.valorTotal | currency:'BRL'}}</h5> 
     </div>
     <br>
-    <button type="submit" class="btn btn-success"> Alterar Pedido</button>
+    <button type="submit" [disabled]="pedido.itensPedidos.length === 0" class="btn btn-success"> Alterar Pedido</button>
     <button type="button" routerLink="/pedidos" class="btn btn-light">Voltar</button>
   </form>
 </app-painel-simples>
