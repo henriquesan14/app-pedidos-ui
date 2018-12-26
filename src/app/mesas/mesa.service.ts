@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Mesa } from '../interfaces/mesa';
+import { Mesa, PageMesa } from '../interfaces/mesa';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,10 @@ export class MesaService {
 
   constructor(private http: HttpClient) { }
 
-  getListaMesas(): Observable<Mesa[]> {
-    const url = `${environment.apiUrl}/mesas`;
-    return this.http.get<Mesa[]>(url);
+
+  getListaMesas(page: number, nome: string): Observable<PageMesa> {
+    const url = `${environment.apiUrl}/mesas?page=${page}&nome=${nome}`;
+    return this.http.get<PageMesa>(url);
   }
 
   getMesa(id: number): Observable<Mesa> {

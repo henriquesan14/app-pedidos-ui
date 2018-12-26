@@ -1,9 +1,11 @@
 <app-error-msg></app-error-msg>
 <app-painel-simples titulo="Mesas" col="12" tipo="default">
-  <div class="row form-group">
-    <button class="btn btn-primary mr-4" routerLink="/mesas/cadastro">Nova Mesa</button>
-    <input placeholder="Pesquise..." class="form-control col-md-10" type="text" name="search" [(ngModel)]="filter">
+  <div class="form-group row">
+    <button class="btn btn-primary add" routerLink="/mesas/cadastro">Nova Mesa</button>
+    <input placeholder="Pesquise o nome da mesa..." [(ngModel)]="nome" type="text" name="nome" class="form-control col-md-6">
+    <button (click)="getListaMesas(pageNumb,nome)" class="btn btn-success col-md-1"><i class="fas fa-search"></i></button>
   </div>
+  <br>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -13,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let mesa of mesas | filter:filter;">
+        <tr *ngFor="let mesa of mesas">
           <td>{{mesa.id}}</td>
           <td>{{mesa.nome}}</td>
           <td>{{mesa.descricao}}</td>
@@ -24,6 +26,11 @@
     </table>
     <div *ngIf="!existemMesas()">
       <span class="badge badge-info">Nenhuma mesa cadastrada</span>
+    </div>
+    <div class="text-center">
+      <i *ngIf="page.number" (click)="getListaMesas(page.number -1, nome)" class="fas fa-angle-double-left"></i>
+      <label [ngClass]="page.number === i? 'atual': ''" class="number" (click)="getListaMesas(i, nome)" *ngFor="let i of totalPages()">{{i+1}}</label>
+      <i *ngIf="page.number < page.totalPages -1" (click)="getListaMesas(page.number +1, nome)" class="fas fa-angle-double-right"></i>
     </div>
 </app-painel-simples>
 
