@@ -1,6 +1,6 @@
 # AppVendaUi
 
-this project consumes link API: https://github.com/henriquesan14/api-pedidos.
+This project consumes link API: https://github.com/henriquesan14/api-pedidos.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
